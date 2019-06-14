@@ -1,44 +1,25 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity
+} from "react-native";
 
 class CarouselImages extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      images: [
-        {
-          uri:
-            "/Users/lde-place/Master/Native project/Photos/landscape-photography-at-every-hour-part-ii-photographing-landscapes-in-rain-or-shine-683x390.jpg"
-        },
-        {
-          uri:
-            "/Users/lde-place/Master/Native project/Photos/Key-Summit-walk.jpg"
-        },
-        {
-          uri:
-            "/Users/lde-place/Master/Native project/Photos/1126885451_be2eff2eeb_b.jpg"
-        },
-        {
-          uri:
-            "/Users/lde-place/Master/Native project/Photos/Lake_Matheson_Morning_xlarge.jpg"
-        }
-      ]
-    };
-  }
-
   render() {
     return (
       <View style={styles.imageContainer}>
-        {this.state.images.map(imageUri => (
-          <Image
-            key={imageUri.uri}
-            source={{ uri: imageUri.uri }}
-            style={styles.imageSlider}
-            onPress={() => {
-              <ImagePress />;
-            }}
-          />
+        {this.props.images.map(imageUrl => (
+          <TouchableOpacity onPress={this.props.handlePress}>
+            <Image
+              key={imageUrl.url}
+              source={{ uri: imageUrl.url }}
+              style={styles.imageSlider}
+            />
+          </TouchableOpacity>
         ))}
       </View>
     );

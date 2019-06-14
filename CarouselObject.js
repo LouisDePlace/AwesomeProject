@@ -22,7 +22,10 @@ class CarouselObject extends Component {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
         >
-          <CarouselImages />
+          <CarouselImages
+            images={this.props.images}
+            handlePress={this.props.handlePress}
+          />
         </ScrollView>
       </View>
     );
