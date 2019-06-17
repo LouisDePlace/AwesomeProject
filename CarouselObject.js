@@ -24,7 +24,8 @@ class CarouselObject extends Component {
         >
           <CarouselImages
             images={this.props.images}
-            handlePress={this.props.handlePress}
+            togglePress={this.props.togglePress}
+            setIndex={this.props.setIndex}
           />
         </ScrollView>
       </View>

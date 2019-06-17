@@ -4,6 +4,7 @@ import TitleMessage from "./TitleMessage";
 import CarouselObject from "./CarouselObject";
 import { Modal } from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
+import { Button } from "react-native";
 
 const images = [
   {
@@ -29,12 +30,17 @@ class FrontPage extends Component {
     super(props);
 
     this.state = {
-      pressed: false
+      pressed: false,
+      index: 0
     };
   }
 
-  handlePress = () => {
-    this.setState({ pressed: true });
+  togglePress = () => {
+    this.setState({ pressed: !this.state.pressed });
+  };
+
+  setIndex = newIndex => {
+    this.setState({ index: newIndex });
   };
 
   swipeDown = () => {
@@ -42,26 +48,38 @@ class FrontPage extends Component {
   };
 
   render() {
-    if (this.state.pressed == true) {
-      return (
-        <View>
-          <Modal visible={true} transparent={true}>
-            <ImageViewer
-              imageUrls={images}
-              onSwipeDown={this.swipeDown}
-              enableSwipeDown
-            />
-          </Modal>
-        </View>
-      );
-    } else {
-      return (
-        <View style={{ flex: 1, height: "100%", width: "100%" }}>
+    return (
+      <View style={{ flex: 1, flexDirection: "column" }}>
+        <View style={{ flex: 1, marginTop: 30 }}>
           <TitleMessage />
-          <CarouselObject images={images} handlePress={this.handlePress} />
+          <CarouselObject
+            images={images}
+            togglePress={this.togglePress}
+            setIndex={this.setIndex}
+          />
         </View>
-      );
-    }
+        <Modal
+          visible={this.state.pressed}
+          transparent={true}
+          style={{ zindex: 1 }}
+        >
+          <ImageViewer
+            imageUrls={images}
+            onSwipeDown={this.swipeDown}
+            enableSwipeDown
+            index={this.state.index}
+            renderHeader={() => (
+              <View style={{ flexDirection: "row", marginTop: 50 }}>
+                <View style={{ flex: 1 }} />
+                <Button title="Close" onPress={this.togglePress}>
+                  Close
+                </Button>
+              </View>
+            )}
+          />
+        </Modal>
+      </View>
+    );
   }
 }
 
