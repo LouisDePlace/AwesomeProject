@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { View } from "react-native";
-import TitleMessage from "./TitleMessage";
-import CarouselObject from "./CarouselObject";
 import CarouselModal from "./CarouselModal";
+import Homepage from "./Homepage";
 
 class FrontPage extends Component {
   constructor(props) {
@@ -16,7 +14,6 @@ class FrontPage extends Component {
 
   handlePress = index => {
     this.setState({ pressed: true, index });
-    console.log(index);
   };
 
   swipeDown = () => {
@@ -33,10 +30,7 @@ class FrontPage extends Component {
             index={this.state.index}
           />
         ) : (
-          <View style={{ flex: 1, height: "100%", width: "100%" }}>
-            <TitleMessage />
-            <CarouselObject handlePress={this.handlePress} />
-          </View>
+          <Homepage handlePress={this.handlePress} />
         )}
       </>
     );

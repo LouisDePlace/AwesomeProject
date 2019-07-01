@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Modal } from "react-native";
-import images from "./images";
+import PdpImages from "./PdpImages";
 import ImageViewer from "react-native-image-zoom-viewer";
 
 class CarouselModal extends Component {
@@ -9,7 +9,7 @@ class CarouselModal extends Component {
       <View>
         <Modal visible={true} transparent={true}>
           <ImageViewer
-            imageUrls={images}
+            imageUrls={PdpImages}
             onSwipeDown={this.props.swipeDown}
             enableSwipeDown
             index={this.props.index}

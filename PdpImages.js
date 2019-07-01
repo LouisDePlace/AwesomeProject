@@ -1,4 +1,4 @@
-const images = [
+const PdpImages = [
   {
     url:
       "https://d36tnp772eyphs.cloudfront.net/blogs/1/2015/04/mt-cook1-940x623.jpg"
@@ -17,4 +17,4 @@ const images = [
   }
 ];
 
-export default images;
+export default PdpImages;
