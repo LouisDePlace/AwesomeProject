@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import TitleMessage from "./TitleMessage";
 import CarouselObject from "./CarouselObject";
-import { Modal } from "react-native";
-import ImageViewer from "react-native-image-zoom-viewer";
+import CarouselModal from "./CarouselModal";
 
 const images = [
   {
@@ -29,12 +28,14 @@ class FrontPage extends Component {
     super(props);
 
     this.state = {
-      pressed: false
+      pressed: false,
+      index: 0
     };
   }
 
-  handlePress = () => {
-    this.setState({ pressed: true });
+  handlePress = index => {
+    this.setState({ pressed: true, index });
+    console.log(index);
   };
 
   swipeDown = () => {
@@ -42,17 +43,14 @@ class FrontPage extends Component {
   };
 
   render() {
-    if (this.state.pressed == true) {
+    if (this.state.pressed) {
       return (
-        <View>
-          <Modal visible={true} transparent={true}>
-            <ImageViewer
-              imageUrls={images}
-              onSwipeDown={this.swipeDown}
-              enableSwipeDown
-            />
-          </Modal>
-        </View>
+        <CarouselModal
+          images={images}
+          swipeDown={this.swipeDown}
+          pressed={this.state.pressed}
+          index={this.state.index}
+        />
       );
     } else {
       return (

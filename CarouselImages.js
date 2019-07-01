@@ -12,13 +12,12 @@ class CarouselImages extends Component {
   render() {
     return (
       <View style={styles.imageContainer}>
-        {this.props.images.map(imageUrl => (
-          <TouchableOpacity onPress={this.props.handlePress}>
-            <Image
-              key={imageUrl.url}
-              source={{ uri: imageUrl.url }}
-              style={styles.imageSlider}
-            />
+        {this.props.images.map((imageUrl, index) => (
+          <TouchableOpacity
+            onPress={() => this.props.handlePress(index)}
+            key={imageUrl.url}
+          >
+            <Image source={{ uri: imageUrl.url }} style={styles.imageSlider} />
           </TouchableOpacity>
         ))}
       </View>
