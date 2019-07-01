@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import images from "./images";
 
 class CarouselImages extends Component {
   render() {
     return (
       <View style={styles.imageContainer}>
-        {this.props.images.map((imageUrl, index) => (
+        {images.map((imageUrl, index) => (
           <TouchableOpacity
             onPress={() => this.props.handlePress(index)}
             key={imageUrl.url}

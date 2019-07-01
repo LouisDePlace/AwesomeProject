@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Dimensions, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import CarouselImages from "./CarouselImages";
 
 class CarouselObject extends Component {
@@ -11,10 +11,7 @@ class CarouselObject extends Component {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
         >
-          <CarouselImages
-            images={this.props.images}
-            handlePress={this.props.handlePress}
-          />
+          <CarouselImages handlePress={this.props.handlePress} />
         </ScrollView>
       </View>
     );
