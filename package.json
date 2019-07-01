@@ -1,5 +1,5 @@
 {
-  "name": "AwesomeProject",
+  "name": "PVPro",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.9"
+    "react-native": "0.59.9",
+    "react-native-image-zoom-viewer": "^2.2.26",
+    "rn-viewpager": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
