@@ -28,6 +28,7 @@ class FrontPage extends Component {
             swipeDown={this.swipeDown}
             pressed={this.state.pressed}
             index={this.state.index}
+            handlePress={this.handlePress}
           />
         ) : (
           <Homepage handlePress={this.handlePress} />
