@@ -68,7 +68,7 @@ class CarouselModal extends Component {
                 style={{
                   flex: 1,
                   flexDirection: "row",
-                  bottom: 50,
+                  bottom: 70,
                   left: 150
                 }}
               >
