@@ -3,6 +3,11 @@ import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import PdpImages from "./PdpImages";
 
 class CarouselImages extends Component {
+  handlePress = index => {
+    this.props.togglePress();
+    this.props.setIndex(index);
+  };
+
   render() {
     return (
       <View style={styles.imageContainer}>
